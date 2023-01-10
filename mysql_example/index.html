@@ -1,113 +1,453 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Mysql Example - Zack Wang</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Zack Wang"><meta name="msapplication-TileImage" content="/images/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Zack Wang"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta description="table example12345678910111213CREATE TABLE &amp;#96;table_name&amp;#96; (  &amp;#96;id&amp;#96; int(10) unsigned NOT NULL AUTO_INCREMENT,  &amp;#96;name&amp;#96; varchar(254) DEFAULT &amp;amp;#x27;&amp;amp;#x27;,  &amp;#96;chips&amp;#96; bigint unsigned NOT NULL,  &amp;#96;status&amp;#96; tinyin"><meta property="og:type" content="blog"><meta property="og:title" content="Mysql Example"><meta property="og:url" content="https://zackking.github.io/mysql_example/"><meta property="og:site_name" content="Zack Wang"><meta property="og:description" content="table example12345678910111213CREATE TABLE &amp;#96;table_name&amp;#96; (  &amp;#96;id&amp;#96; int(10) unsigned NOT NULL AUTO_INCREMENT,  &amp;#96;name&amp;#96; varchar(254) DEFAULT &amp;amp;#x27;&amp;amp;#x27;,  &amp;#96;chips&amp;#96; bigint unsigned NOT NULL,  &amp;#96;status&amp;#96; tinyin"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://zackking.github.io/img/og_image.png"><meta property="article:published_time" content="2020-11-23T16:00:00.000Z"><meta property="article:modified_time" content="2021-07-28T15:54:20.014Z"><meta property="article:author" content="Zack Wang"><meta property="article:tag" content="develop"><meta property="article:tag" content="mysql"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://zackking.github.io/mysql_example/"},"headline":"Zack Wang","image":["https://zackking.github.io/img/og_image.png"],"datePublished":"2020-11-23T16:00:00.000Z","dateModified":"2021-07-28T15:54:20.014Z","author":{"@type":"Person","name":"Zack Wang"},"description":"table example12345678910111213CREATE TABLE &#96;table_name&#96; (  &#96;id&#96; int(10) unsigned NOT NULL AUTO_INCREMENT,  &#96;name&#96; varchar(254) DEFAULT &amp;#x27;&amp;#x27;,  &#96;chips&#96; bigint unsigned NOT NULL,  &#96;status&#96; tinyin"}</script><link rel="canonical" href="https://zackking.github.io/mysql_example/"><link rel="icon" href="/images/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/images/logo.svg" alt="Zack Wang" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a></div><div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2020-11-23T16:00:00.000Z" title="2020-11-23T16:00:00.000Z">2020-11-24</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-07-28T15:54:20.014Z" title="2021-07-28T15:54:20.014Z">2021-07-28</time></span><span class="level-item">3 minutes read (About 383 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">Mysql Example</h1><div class="content"><h2 id="table-example"><a href="#table-example" class="headerlink" title="table example"></a>table example</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`table_name`</span> (</span><br><span class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  <span class="string">`name`</span> <span class="built_in">varchar</span>(<span class="number">254</span>) <span class="keyword">DEFAULT</span> <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  <span class="string">`chips`</span> <span class="built_in">bigint</span> <span class="keyword">unsigned</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`status`</span> <span class="built_in">tinyint</span> <span class="keyword">unsigned</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`time`</span> <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`created_time`</span> <span class="built_in">timestamp</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">CURRENT_TIMESTAMP</span>,</span><br><span class="line">  <span class="string">`updated_time`</span> <span class="built_in">timestamp</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">CURRENT_TIMESTAMP</span> <span class="keyword">ON</span> <span class="keyword">UPDATE</span> <span class="keyword">CURRENT_TIMESTAMP</span></span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>),</span><br><span class="line">  <span class="keyword">UNIQUE</span> <span class="keyword">KEY</span> <span class="string">`uni_name`</span> (<span class="string">`name`</span>),</span><br><span class="line">  <span class="keyword">KEY</span> <span class="string">`idx_time`</span> (<span class="string">`time`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<html lang="en">
 
-<ul>
-<li><p>每张表都有主键 id</p>
-</li>
-<li><p>所有 int 确定非负数都使用 unsigned 避免浪费范围</p>
-</li>
-<li><p>varchar(255) 不是 256, 方便 InnoDB 建索引, 少申请一个字节</p>
-</li>
-<li><p>linux 时间戳使用 int(11) unsigned, 因为已经达到目前 linux 标准范围, 超出部分现有大部分语言时间戳函数无法识别</p>
-</li>
-<li><p>习惯使用 created_time, updated_time 字段, 默认是让 mysql 自动记录时间</p>
-</li>
-<li><p>索引命名例子, uni_xxx 表示 unique key, idx_xxx 表示普通索引, 默认 btree, 非 hash 索引不用写上定义</p>
-</li>
-<li><p>tinyint 一个字节 smallint 两个字节 MEDIUMINT 三个字节, 状态字段一般 tinyint unsigned (0-255)</p>
-</li>
-<li><p>非特殊用途, 一律 NOT NULL, varchar default ‘’ 而不是 NULL, ‘’不占用字节, NULL 占用字节</p>
-</li>
-<li><p>使用下划线命名, 而不是驼峰, mysql 内部默认大小写不敏感</p>
-</li>
-</ul>
-<h2 id="关于-int-类型"><a href="#关于-int-类型" class="headerlink" title="关于 int 类型"></a>关于 int 类型</h2><ul>
-<li>定义</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>存储</th>
-<th>容量</th>
-<th>范围</th>
-<th>unsigned</th>
-<th>展示位</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>tinyint</td>
-<td>1 Byte</td>
-<td>2^8</td>
-<td>-128 ~ 127</td>
-<td>0 ~ 255</td>
-<td>3</td>
-</tr>
-<tr>
-<td>smallint</td>
-<td>2 Byte</td>
-<td>2^16</td>
-<td>-</td>
-<td>0 ~ 65535</td>
-<td>5</td>
-</tr>
-<tr>
-<td>mediumint</td>
-<td>3 Byte</td>
-<td>2^24</td>
-<td>-</td>
-<td>0 ~ 16,777,215 (1600 万+)</td>
-<td>8</td>
-</tr>
-<tr>
-<td>int</td>
-<td>4 Byte</td>
-<td>2^32</td>
-<td>-2147483648 ~ 2147483647</td>
-<td>0 ~ 4,294,967,295 (42 亿+)</td>
-<td>10</td>
-</tr>
-<tr>
-<td>bigint</td>
-<td>8 Byte</td>
-<td>2^64</td>
-<td>-</td>
-<td>0 ~ 18446744073709551615</td>
-<td>20</td>
-</tr>
-</tbody></table>
-<ul>
-<li><p>int(M) M 为展示位数, 与实际存储容量无关, 对应类型存储的最大值和最小值是固定的</p>
-</li>
-<li><p>因为符号位存在, 一般 int(11) 和 unsigned int(10)</p>
-</li>
-<li><p>不设置 fillzero 补零, unsigned 的 int(11) 与 int(10) 无区别, 一般设置为 int(11) 预留可转换符号</p>
-</li>
-</ul>
-</div><div class="article-licensing box"><div class="licensing-title"><p>Mysql Example</p><p><a href="https://zackking.github.io/mysql_example/">https://zackking.github.io/mysql_example/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Zack Wang</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2020-11-24</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2021-07-28</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/develop/">develop</a><a class="link-muted mr-2" rel="tag" href="/tags/mysql/">mysql</a></div><div class="addthis_inline_share_toolbox"></div><script src="https://platform-api.sharethis.com/js/sharethis.js#property=5fca1b1f93e5d300128f7ecc&amp;product=sop" defer></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">Like this article? Support the author with</h3><div class="buttons is-centered"><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>Wechat</span><span class="qrcode"><img src="/images/pay.png" alt="Wechat"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/markdown/"><span class="level-item">Markdown 语法</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="comment-container"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script><script>var gitalk = new Gitalk({
-            id: "0bc58569db54e3d88eaae9963db12e63",
-            repo: "https://github.com/ZackKing/ZackKing.github.io.git",
-            owner: "ZackKing",
-            clientID: "3f1ae0451d58c7901fca",
-            clientSecret: "3f4f52a903a887b8c916811ebff9f91fd1d7805c",
-            admin: ["ZackKing"],
-            createIssueManually: false,
-            distractionFreeMode: false,
-            perPage: 20,
-            pagerDirection: "last",
-            
-            
-            enableHotKey: true,
-            
-        })
-        gitalk.render('comment-container')</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://avatars2.githubusercontent.com/u/8475242?s=460&amp;u=dd35889f9d80fd72be010ee11eee0176fa2f7818&amp;v=4" alt="Zack Wang"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Zack Wang</p><p class="is-size-6 is-block">Coder</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>China, Guangzhou</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">2</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">2</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ZackKing" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ZackKing"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://www.facebook.com/profile.php?id=100009493165228"><i class="fab fa-facebook"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-11-23T16:00:00.000Z">2020-11-24</time></p><p class="title"><a href="/mysql_example/">Mysql Example</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-04-21T16:00:00.000Z">2020-04-22</time></p><p class="title"><a href="/markdown/">Markdown 语法</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2020/11/"><span class="level-start"><span class="level-item">November 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/04/"><span class="level-start"><span class="level-item">April 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/develop/"><span class="tag">develop</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mysql/"><span class="tag">mysql</span><span class="tag">1</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/images/logo.svg" alt="Zack Wang" height="28"></a><p class="is-size-7"><span>&copy; 2021 Zack Wang</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  - <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener">粤ICP备2022003311号-1</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta>
+    <title>Mysql Example - 大锤编程笔记</title>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="application-name" content="Zack Wang">
+    <meta name="msapplication-TileImage" content="/images/favicon.svg">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Zack Wang">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta
+        description="table example12345678910111213CREATE TABLE &amp;#96;table_name&amp;#96; (  &amp;#96;id&amp;#96; int(10) unsigned NOT NULL AUTO_INCREMENT,  &amp;#96;name&amp;#96; varchar(254) DEFAULT &amp;amp;#x27;&amp;amp;#x27;,  &amp;#96;chips&amp;#96; bigint unsigned NOT NULL,  &amp;#96;status&amp;#96; tinyin">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Mysql Example">
+    <meta property="og:url" content="https://zackking.github.io/mysql_example/">
+    <meta property="og:site_name" content="Zack Wang">
+    <meta property="og:description"
+        content="table example12345678910111213CREATE TABLE &amp;#96;table_name&amp;#96; (  &amp;#96;id&amp;#96; int(10) unsigned NOT NULL AUTO_INCREMENT,  &amp;#96;name&amp;#96; varchar(254) DEFAULT &amp;amp;#x27;&amp;amp;#x27;,  &amp;#96;chips&amp;#96; bigint unsigned NOT NULL,  &amp;#96;status&amp;#96; tinyin">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://zackking.github.io/img/og_image.png">
+    <meta property="article:published_time" content="2020-11-23T16:00:00.000Z">
+    <meta property="article:modified_time" content="2021-07-28T15:54:20.014Z">
+    <meta property="article:author" content="Zack Wang">
+    <meta property="article:tag" content="develop">
+    <meta property="article:tag" content="mysql">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:image" content="/img/og_image.png">
+    <script
+        type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://zackking.github.io/mysql_example/"},"headline":"Zack Wang","image":["https://zackking.github.io/img/og_image.png"],"datePublished":"2020-11-23T16:00:00.000Z","dateModified":"2021-07-28T15:54:20.014Z","author":{"@type":"Person","name":"Zack Wang"},"description":"table example12345678910111213CREATE TABLE &#96;table_name&#96; (  &#96;id&#96; int(10) unsigned NOT NULL AUTO_INCREMENT,  &#96;name&#96; varchar(254) DEFAULT &amp;#x27;&amp;#x27;,  &#96;chips&#96; bigint unsigned NOT NULL,  &#96;status&#96; tinyin"}</script>
+    <link rel="canonical" href="https://zackking.github.io/mysql_example/">
+    <link rel="icon" href="/images/favicon.svg">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro">
+    <link rel="stylesheet" href="/css/default.css">
+    <style>
+        body>.footer,
+        body>.navbar,
+        body>.section {
+            opacity: 0
+        }
+    </style><!--!--><!--!--><!--!-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    <!--!--><!--!-->
+    <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    <meta name="generator" content="Hexo 5.2.0">
+</head>
+
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+        <div class="container">
+            <div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img
+                        src="/images/logo.svg" alt="Zack Wang" height="28"></a></div>
+            <div class="navbar-menu">
+                <div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item"
+                        href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a
+                        class="navbar-item" href="/tags">Tags</a></div>
+                <div class="navbar-end"><a class="navbar-item search" title="Search" href="javascript:;"><i
+                            class="fas fa-search"></i></a></div>
+            </div>
+        </div>
+    </nav>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen">
+                    <div class="card">
+                        <article class="card-content article" role="article">
+                            <div class="article-meta is-size-7 is-uppercase level is-mobile">
+                                <div class="level-left"><span class="level-item">Posted&nbsp;<time
+                                            dateTime="2020-11-23T16:00:00.000Z"
+                                            title="2020-11-23T16:00:00.000Z">2020-11-24</time></span><span
+                                        class="level-item">Updated&nbsp;<time dateTime="2021-07-28T15:54:20.014Z"
+                                            title="2021-07-28T15:54:20.014Z">2021-07-28</time></span><span
+                                        class="level-item">3 minutes read (About 383 words)</span></div>
+                            </div>
+                            <h1 class="title is-3 is-size-4-mobile">Mysql Example</h1>
+                            <div class="content">
+                                <h2 id="table-example"><a href="#table-example" class="headerlink"
+                                        title="table example"></a>table example</h2>
+                                <figure class="highlight sql">
+                                    <table>
+                                        <tr>
+                                            <td class="gutter">
+                                                <pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre>
+                                            </td>
+                                            <td class="code">
+                                                <pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`table_name`</span> (</span><br><span class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  <span class="string">`name`</span> <span class="built_in">varchar</span>(<span class="number">254</span>) <span class="keyword">DEFAULT</span> <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  <span class="string">`chips`</span> <span class="built_in">bigint</span> <span class="keyword">unsigned</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`status`</span> <span class="built_in">tinyint</span> <span class="keyword">unsigned</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`time`</span> <span class="built_in">int</span>(<span class="number">10</span>) <span class="keyword">unsigned</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`created_time`</span> <span class="built_in">timestamp</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">CURRENT_TIMESTAMP</span>,</span><br><span class="line">  <span class="string">`updated_time`</span> <span class="built_in">timestamp</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">CURRENT_TIMESTAMP</span> <span class="keyword">ON</span> <span class="keyword">UPDATE</span> <span class="keyword">CURRENT_TIMESTAMP</span></span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>),</span><br><span class="line">  <span class="keyword">UNIQUE</span> <span class="keyword">KEY</span> <span class="string">`uni_name`</span> (<span class="string">`name`</span>),</span><br><span class="line">  <span class="keyword">KEY</span> <span class="string">`idx_time`</span> (<span class="string">`time`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</span><br><span class="line"></span><br></pre>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </figure>
+
+                                <ul>
+                                    <li>
+                                        <p>每张表都有主键 id</p>
+                                    </li>
+                                    <li>
+                                        <p>所有 int 确定非负数都使用 unsigned 避免浪费范围</p>
+                                    </li>
+                                    <li>
+                                        <p>varchar(255) 不是 256, 方便 InnoDB 建索引, 少申请一个字节</p>
+                                    </li>
+                                    <li>
+                                        <p>linux 时间戳使用 int(11) unsigned, 因为已经达到目前 linux 标准范围, 超出部分现有大部分语言时间戳函数无法识别</p>
+                                    </li>
+                                    <li>
+                                        <p>习惯使用 created_time, updated_time 字段, 默认是让 mysql 自动记录时间</p>
+                                    </li>
+                                    <li>
+                                        <p>索引命名例子, uni_xxx 表示 unique key, idx_xxx 表示普通索引, 默认 btree, 非 hash 索引不用写上定义</p>
+                                    </li>
+                                    <li>
+                                        <p>tinyint 一个字节 smallint 两个字节 MEDIUMINT 三个字节, 状态字段一般 tinyint unsigned (0-255)
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>非特殊用途, 一律 NOT NULL, varchar default ‘’ 而不是 NULL, ‘’不占用字节, NULL 占用字节</p>
+                                    </li>
+                                    <li>
+                                        <p>使用下划线命名, 而不是驼峰, mysql 内部默认大小写不敏感</p>
+                                    </li>
+                                </ul>
+                                <h2 id="关于-int-类型"><a href="#关于-int-类型" class="headerlink" title="关于 int 类型"></a>关于 int
+                                    类型</h2>
+                                <ul>
+                                    <li>定义</li>
+                                </ul>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>类型</th>
+                                            <th>存储</th>
+                                            <th>容量</th>
+                                            <th>范围</th>
+                                            <th>unsigned</th>
+                                            <th>展示位</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>tinyint</td>
+                                            <td>1 Byte</td>
+                                            <td>2^8</td>
+                                            <td>-128 ~ 127</td>
+                                            <td>0 ~ 255</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr>
+                                            <td>smallint</td>
+                                            <td>2 Byte</td>
+                                            <td>2^16</td>
+                                            <td>-</td>
+                                            <td>0 ~ 65535</td>
+                                            <td>5</td>
+                                        </tr>
+                                        <tr>
+                                            <td>mediumint</td>
+                                            <td>3 Byte</td>
+                                            <td>2^24</td>
+                                            <td>-</td>
+                                            <td>0 ~ 16,777,215 (1600 万+)</td>
+                                            <td>8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>int</td>
+                                            <td>4 Byte</td>
+                                            <td>2^32</td>
+                                            <td>-2147483648 ~ 2147483647</td>
+                                            <td>0 ~ 4,294,967,295 (42 亿+)</td>
+                                            <td>10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>bigint</td>
+                                            <td>8 Byte</td>
+                                            <td>2^64</td>
+                                            <td>-</td>
+                                            <td>0 ~ 18446744073709551615</td>
+                                            <td>20</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <ul>
+                                    <li>
+                                        <p>int(M) M 为展示位数, 与实际存储容量无关, 对应类型存储的最大值和最小值是固定的</p>
+                                    </li>
+                                    <li>
+                                        <p>因为符号位存在, 一般 int(11) 和 unsigned int(10)</p>
+                                    </li>
+                                    <li>
+                                        <p>不设置 fillzero 补零, unsigned 的 int(11) 与 int(10) 无区别, 一般设置为 int(11) 预留可转换符号</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="article-licensing box">
+                                <div class="licensing-title">
+                                    <p>Mysql Example</p>
+                                    <p><a
+                                            href="https://zackking.github.io/mysql_example/">https://zackking.github.io/mysql_example/</a>
+                                    </p>
+                                </div>
+                                <div class="licensing-meta level is-mobile">
+                                    <div class="level-left">
+                                        <div class="level-item is-narrow">
+                                            <div>
+                                                <h6>Author</h6>
+                                                <p>Zack Wang</p>
+                                            </div>
+                                        </div>
+                                        <div class="level-item is-narrow">
+                                            <div>
+                                                <h6>Posted on</h6>
+                                                <p>2020-11-24</p>
+                                            </div>
+                                        </div>
+                                        <div class="level-item is-narrow">
+                                            <div>
+                                                <h6>Updated on</h6>
+                                                <p>2021-07-28</p>
+                                            </div>
+                                        </div>
+                                        <div class="level-item is-narrow">
+                                            <div>
+                                                <h6>Licensed under</h6>
+                                                <p><a class="icon" rel="noopener" target="_blank"
+                                                        title="Creative Commons" href="https://creativecommons.org/"><i
+                                                            class="fab fa-creative-commons"></i></a><a class="icon"
+                                                        rel="noopener" target="_blank" title="Attribution"
+                                                        href="https://creativecommons.org/licenses/by/4.0/"><i
+                                                            class="fab fa-creative-commons-by"></i></a><a class="icon"
+                                                        rel="noopener" target="_blank" title="Noncommercial"
+                                                        href="https://creativecommons.org/licenses/by-nc/4.0/"><i
+                                                            class="fab fa-creative-commons-nc"></i></a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a
+                                    class="link-muted mr-2" rel="tag" href="/tags/develop/">develop</a><a
+                                    class="link-muted mr-2" rel="tag" href="/tags/mysql/">mysql</a></div>
+                            <div class="addthis_inline_share_toolbox"></div>
+                            <script
+                                src="https://platform-api.sharethis.com/js/sharethis.js#property=5fca1b1f93e5d300128f7ecc&amp;product=sop"
+                                defer></script>
+                        </article>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+                            <div class="buttons is-centered"><a class="button donate" data-type="wechat"><span
+                                        class="icon is-small"><i
+                                            class="fab fa-weixin"></i></span><span>Wechat</span><span
+                                        class="qrcode"><img src="/images/pay.png" alt="Wechat"></span></a></div>
+                        </div>
+                    </div>
+                    <nav class="post-navigation mt-4 level is-mobile">
+                        <div class="level-end"><a class="article-nav-next level level-item link-muted"
+                                href="/markdown/"><span class="level-item">Markdown 语法</span><i
+                                    class="level-item fas fa-chevron-right"></i></a></div>
+                    </nav>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="title is-5">Comments</h3>
+                            <div id="comment-container"></div>
+                            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.css">
+                            <script src="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script>
+                            <script>var gitalk = new Gitalk({
+                                    id: "0bc58569db54e3d88eaae9963db12e63",
+                                    repo: "https://github.com/ZackKing/ZackKing.github.io.git",
+                                    owner: "ZackKing",
+                                    clientID: "3f1ae0451d58c7901fca",
+                                    clientSecret: "3f4f52a903a887b8c916811ebff9f91fd1d7805c",
+                                    admin: ["ZackKing"],
+                                    createIssueManually: false,
+                                    distractionFreeMode: false,
+                                    perPage: 20,
+                                    pagerDirection: "last",
+
+
+                                    enableHotKey: true,
+
+                                })
+                                gitalk.render('comment-container')</script>
+                        </div>
+                    </div>
+                </div>
+                <div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1">
+                    <div class="card widget" data-type="profile">
+                        <div class="card-content">
+                            <nav class="level">
+                                <div class="level-item has-text-centered flex-shrink-1">
+                                    <div>
+                                        <figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded"
+                                                src="https://avatars2.githubusercontent.com/u/8475242?s=460&amp;u=dd35889f9d80fd72be010ee11eee0176fa2f7818&amp;v=4"
+                                                alt="Zack Wang"></figure>
+                                        <p class="title is-size-4 is-block" style="line-height:inherit;">Zack Wang</p>
+                                        <p class="is-size-6 is-block">Coder</p>
+                                        <p class="is-size-6 is-flex justify-content-center"><i
+                                                class="fas fa-map-marker-alt mr-1"></i><span>China, Guangzhou</span></p>
+                                    </div>
+                                </div>
+                            </nav>
+                            <nav class="level is-mobile">
+                                <div class="level-item has-text-centered is-marginless">
+                                    <div>
+                                        <p class="heading">Posts</p><a href="/archives">
+                                            <p class="title">2</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="level-item has-text-centered is-marginless">
+                                    <div>
+                                        <p class="heading">Categories</p><a href="/categories">
+                                            <p class="title">0</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="level-item has-text-centered is-marginless">
+                                    <div>
+                                        <p class="heading">Tags</p><a href="/tags">
+                                            <p class="title">2</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </nav>
+                            <div class="level"><a class="level-item button is-primary is-rounded"
+                                    href="https://github.com/ZackKing" target="_blank" rel="noopener">Follow</a></div>
+                            <div class="level is-mobile"><a class="level-item button is-transparent is-marginless"
+                                    target="_blank" rel="noopener" title="Github" href="https://github.com/ZackKing"><i
+                                        class="fab fa-github"></i></a><a
+                                    class="level-item button is-transparent is-marginless" target="_blank"
+                                    rel="noopener" title="Facebook"
+                                    href="https://www.facebook.com/profile.php?id=100009493165228"><i
+                                        class="fab fa-facebook"></i></a></div>
+                        </div>
+                    </div><!--!-->
+                    <div class="card widget" data-type="links">
+                        <div class="card-content">
+                            <div class="menu">
+                                <h3 class="menu-label">Links</h3>
+                                <ul class="menu-list">
+                                    <li><a class="level is-mobile" href="https://hexo.io" target="_blank"
+                                            rel="noopener"><span class="level-left"><span
+                                                    class="level-item">Hexo</span></span><span class="level-right"><span
+                                                    class="level-item tag">hexo.io</span></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!--!-->
+                    <div class="card widget" data-type="recent-posts">
+                        <div class="card-content">
+                            <h3 class="menu-label">Recents</h3>
+                            <article class="media">
+                                <div class="media-content">
+                                    <p class="date"><time dateTime="2020-11-23T16:00:00.000Z">2020-11-24</time></p>
+                                    <p class="title"><a href="/mysql_example/">Mysql Example</a></p>
+                                </div>
+                            </article>
+                            <article class="media">
+                                <div class="media-content">
+                                    <p class="date"><time dateTime="2020-04-21T16:00:00.000Z">2020-04-22</time></p>
+                                    <p class="title"><a href="/markdown/">Markdown 语法</a></p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="card widget" data-type="archives">
+                        <div class="card-content">
+                            <div class="menu">
+                                <h3 class="menu-label">Archives</h3>
+                                <ul class="menu-list">
+                                    <li><a class="level is-mobile" href="/archives/2020/11/"><span
+                                                class="level-start"><span class="level-item">November
+                                                    2020</span></span><span class="level-end"><span
+                                                    class="level-item tag">1</span></span></a></li>
+                                    <li><a class="level is-mobile" href="/archives/2020/04/"><span
+                                                class="level-start"><span class="level-item">April
+                                                    2020</span></span><span class="level-end"><span
+                                                    class="level-item tag">1</span></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card widget" data-type="tags">
+                        <div class="card-content">
+                            <div class="menu">
+                                <h3 class="menu-label">Tags</h3>
+                                <div class="field is-grouped is-grouped-multiline">
+                                    <div class="control"><a class="tags has-addons" href="/tags/develop/"><span
+                                                class="tag">develop</span><span class="tag">2</span></a></div>
+                                    <div class="control"><a class="tags has-addons" href="/tags/mysql/"><span
+                                                class="tag">mysql</span><span class="tag">1</span></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--!-->
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="level">
+                <div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/images/logo.svg"
+                            alt="Zack Wang" height="28"></a>
+                    <p class="is-size-7"><span>&copy; 2022 Zack Wang</span>  Powered by <a href="https://hexo.io/"
+                            target="_blank" rel="noopener">Hexo</a>  - <a href="https://beian.miit.gov.cn"
+                            target="_blank" rel="noopener">粤ICP备2022003311号-1</a></p>
+                </div>
+                <div class="level-end">
+                    <div class="field has-addons">
+                        <p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener"
+                                title="Creative Commons" href="https://creativecommons.org/"><i
+                                    class="fab fa-creative-commons"></i></a></p>
+                        <p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener"
+                                title="Attribution 4.0 International"
+                                href="https://creativecommons.org/licenses/by/4.0/"><i
+                                    class="fab fa-creative-commons-by"></i></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" async></script>
+    <script>moment.locale("en");</script>
+    <script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
                     fold: 'unfolded'
                 }
             }
-        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+        };</script>
+    <script src="/js/column.js"></script>
+    <script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i
+            class="fas fa-chevron-up"></i></a>
+    <script src="/js/back_to_top.js" defer></script><!--!--><!--!-->
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"
+        defer></script>
+    <script>window.addEventListener("load", () => {
             if (typeof $.fn.lightGallery === 'function') {
                 $('.article').lightGallery({ selector: '.gallery-item' });
             }
@@ -117,6 +457,21 @@
                 }
                 $('.justified-gallery').justifiedGallery();
             }
-        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
-            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
-        });</script></body></html>
+        });</script><!--!--><!--!--><!--!-->
+    <script src="/js/main.js" defer></script>
+    <div class="searchbox">
+        <div class="searchbox-container">
+            <div class="searchbox-header">
+                <div class="searchbox-input-container"><input class="searchbox-input" type="text"
+                        placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a>
+            </div>
+            <div class="searchbox-body"></div>
+        </div>
+    </div>
+    <script src="/js/insight.js" defer></script>
+    <script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({ "contentUrl": "/content.json" }, { "hint": "Type something...", "untitled": "(Untitled)", "posts": "Posts", "pages": "Pages", "categories": "Categories", "tags": "Tags" });
+        });</script>
+</body>
+
+</html>
